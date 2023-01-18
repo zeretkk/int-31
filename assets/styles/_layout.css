@@ -1,0 +1,76 @@
+/* setup */
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Roman.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --primary:#34C759;
+    --black:#1A1A1A;
+    --dark-gray:#252525;
+    --light-gray:#737373
+}
+
+body{
+    background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
+    color: #fff;
+    font-family: "Helvetica", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+}
+h1{
+    font-size: 72px;
+    font-weight: normal;
+}
+h4{
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 0.2em;
+    line-height: 150px;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.active{
+    color: var(--primary);
+}
+.background-text{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    font-weight: 900;
+    font-size: 100px;
+    letter-spacing: 0.2em;
+    color: #303030;
+    text-transform: uppercase;
+}
