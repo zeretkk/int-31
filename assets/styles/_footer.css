@@ -1,0 +1,19 @@
+.footer{
+    background-color: var(--dark-gray);
+}
+.footer__credentials{
+    border-top: 1px solid #303030;
+}
+.footer__credentials__img{
+    width: 205px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 40px;
+
+}
+.footer__credentials__copy{
+    margin-top: 12px;
+    text-align: center;
+    color: #737373;
+    font-size: 12px;
+}

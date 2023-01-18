@@ -1,0 +1,24 @@
+.header{
+    height: 90px;
+    border-bottom: 1px solid #fff;
+}
+.header__wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.header__logo{
+    flex: 0 1 200px;
+}
+.header__logo__img{
+    width: 100%;
+    height: auto;
+}
+.header__navbar{
+    display: flex;
+    flex: 0 0 300px;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}

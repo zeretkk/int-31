@@ -1,0 +1,26 @@
+.rating{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.rating__star{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+.rating__star_full{
+    background: url("../images/ic_star.svg") center no-repeat;
+}
+.rating__star_half{
+    background: url("../images/ic_star_half.svg") center no-repeat;
+}
+.rating__star_empty{
+    background: url("../images/ic_star_border.svg") center no-repeat;
+}
+.rating__count{
+    margin-top: 5px;
+    margin-left: 15px;
+}

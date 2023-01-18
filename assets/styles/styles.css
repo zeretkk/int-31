@@ -1,0 +1,160 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ul[class],
+ol[class] {
+  padding: 0;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* setup */
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueCyr-Roman.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --primary:#34C759;
+    --black:#1A1A1A;
+    --dark-gray:#252525;
+    --light-gray:#737373
+}
+
+body{
+    background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
+    color: #fff;
+    font-family: "Helvetica", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+}
+h1{
+    font-size: 72px;
+    font-weight: normal;
+}
+h4{
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 0.2em;
+    line-height: 150px;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.active{
+    color: var(--primary);
+}
+.background-text{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    font-weight: 900;
+    font-size: 100px;
+    letter-spacing: 0.2em;
+    color: #303030;
+    text-transform: uppercase;
+}
+
+@import url("./_header.css");
+@import url("./_hero.css");
+@import url("./contact-list.css");
+@import url("./_about.css");
+@import url("./_work.css");
+@import url("./_advantage-list.css");
+@import url("./_dishes.css");
+@import url("./_rating.css");
+
+@media screen and (min-width: 1440px) {
+    body{
+        background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
+        background-size: contain;
+    }
+}

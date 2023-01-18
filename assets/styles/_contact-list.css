@@ -1,0 +1,21 @@
+.contact-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.contact-list__item{
+    text-align: center;
+}
+.contact-list__item__icon{
+    margin: 0 auto 13px auto;
+}
+.contact-list__item__description{
+    opacity: .5;
+    font-size: 14;
+}
+.contact-list_variant_footer{
+    justify-content: space-evenly;
+    padding: 32px 0;
+}

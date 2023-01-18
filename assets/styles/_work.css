@@ -1,0 +1,21 @@
+.work{
+    margin-bottom: 120px;
+}
+.work__heading{
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 60px;    
+}
+.work__heading::after{
+    display: block;
+    content: "";
+    width: 60px;
+    height: 2px;
+    background-color: var(--primary);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
