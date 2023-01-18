@@ -34,6 +34,7 @@
 
 body{
     background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
+    background-size: contain;
     color: #fff;
     font-family: "Helvetica", sans-serif;
     font-weight: normal;

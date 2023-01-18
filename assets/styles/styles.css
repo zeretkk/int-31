@@ -12,9 +12,3 @@
 
 
 
-@media screen and (min-width: 1440px) {
-    body{
-        background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
-        background-size: contain;
-    }
-}
