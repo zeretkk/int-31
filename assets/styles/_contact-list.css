@@ -6,6 +6,7 @@
 }
 
 .contact-list__item{
+    flex: 0 0 200px;
     text-align: center;
 }
 .contact-list__item__icon{
