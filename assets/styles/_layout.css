@@ -59,7 +59,7 @@ a{
     text-decoration: none;
     font-weight: bold;
 }
-.active{
+a.active, a:hover{
     color: var(--primary);
 }
 .background-text{
