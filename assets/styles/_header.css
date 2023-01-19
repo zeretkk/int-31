@@ -27,11 +27,11 @@
 @media screen and (max-width: 500px) {
     .header__wrapper{
         flex-flow: column nowrap;
+        padding: 0 1rem;
     }
     .header__navbar{
         flex: 0 0 auto;
         justify-content: space-between;
         width: 100%;
-        padding: 0 1rem;
     }
 }
