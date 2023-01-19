@@ -21,9 +21,30 @@
 
 .about__slider{
     display: grid;
-    grid-template-columns: 1fr repeat(2, 2fr) 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     gap: 34px;
 }
+.about__slider__content{
+    position: relative;
+    height: 270px;
+}
+.about__slider__content__item{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    bottom: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+
+}
+.about__slider__content__item:nth-child(2n+1){
+    left: calc(0px - 1.5vw);
+    
+}
+.about__slider__content__item:nth-child(2n){
+    right: calc(0px - 1.5vw);
+}
+
 .about__slider__button{
     margin: auto;
 }
