@@ -31,7 +31,9 @@
     --dark-gray:#252525;
     --light-gray:#737373
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
     background-size: contain;
@@ -39,6 +41,7 @@ body{
     font-family: "Helvetica", sans-serif;
     font-weight: normal;
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 h1{
     font-size: 72px;
@@ -70,7 +73,7 @@ a.active, a:hover{
     transform: translate(-50%, -50%);
     z-index: -1;
     font-weight: 900;
-    font-size: 100px;
+    font-size: min(100px, 15vw);
     letter-spacing: 0.2em;
     color: #303030;
     text-transform: uppercase;

@@ -17,19 +17,19 @@
                 <img class="header__logo__img" src="./assets/images/Logo.svg" alt="Healthy Switcher logo">
             </div>
             <nav class="header__navbar">
-                <a href="" class="header__navbar__link active">Menu</a>
-                <a href="" class="header__navbar__link">Rcipes</a>
-                <a href="" class="header__navbar__link">Chefs</a>
-                <a href="" class="header__navbar__link">Contacts</a>
+                <a href="/" class="header__navbar__link active">Home</a>
+                <a href="#about" class="header__navbar__link">About</a>
+                <a href="#work" class="header__navbar__link">How</a>
+                <a href="#dishes" class="header__navbar__link">Dishes</a>
             </nav>
         </div>
     </header>
     <main class="container">
         <div class="hero">
-                <h1 class="hero__heading">Your <span>favourite food</span><br>delivered <span>hot & fresh</span></h1>
-                <p class="hero__description">
-                    HEALTHY SWITCHER chefs do all the prep work, like peeling, chopping & <br> marinating, so you can cook a fresh homemade dinner in just 15 minutes.
-                </p>
+            <h1 class="hero__heading">Your <span>favourite food</span><br>delivered <span>hot & fresh</span></h1>
+            <p class="hero__description">
+                HEALTHY SWITCHER chefs do all the prep work, like peeling, chopping & <br> marinating, so you can cook a fresh homemade dinner in just 15 minutes.
+            </p>
             <button class="hero__button">Order Now</button>
             <div class="contact-list">
                 <div class="contact-list__item">
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="about  about_page">
+        <div class="about  about_page" id="about">
             <h4 class="about__heading">
                 The Basics Of Healthy Food
                 <p class="background-text">about</p>
@@ -59,12 +59,14 @@
             </p>
             <div class="about__slider">
                 <img src="./assets/images/slider-left.png" alt="" class="about__slider__button">
-                <img src="./assets/images/slider-1.png" alt="slider-1st" class="about__slider__item">
-                <img src="./assets/images/slider-2.png" alt="slider-2nd" class="about__slider__item">
+                <div class="about__slider__content">
+                    <img src="./assets/images/slider-1.png" alt="slider-1st" class="about__slider__content__item">
+                    <img src="./assets/images/slider-2.png" alt="slider-2nd" class="about__slider__content__item">
+                </div>
                 <img src="./assets/images/slider-right.png" alt="" class="about__slider__button">
             </div>
         </div>
-        <div class="work ">
+        <div class="work" id="work">
             <h4 class="work__heading">
                 How It Works
                 <p class="background-text">work</p>
@@ -94,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <div class="dishes ">
+        <div class="dishes" id="dishes">
             <h4 class="dishes__heading">
                 Dish Of The Day
                 <div class="background-text">
