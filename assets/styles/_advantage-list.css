@@ -38,14 +38,14 @@
     opacity: .5;
     letter-spacing: -0.1625px;
 }
-.advantage-list__item_prime{
+.advantage-list__item:hover{
     background-color: var(--primary);
     color: #191919;
 }
-.advantage-list__item__name_prime::after{
+.advantage-list__item:hover>.advantage-list__item__name::after{
     background-color:#191919;
 }
-.advantage-list__item__description_prime{
+.advantage-list__item:hover>.advantage-list__item__description{
     color: #191919;
     opacity: 1;
 }
