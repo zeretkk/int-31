@@ -27,10 +27,14 @@
     align-items: center;
 }
 .dishes__list__item{
-    flex: 0 0 350px;
+    flex: 0 1 350px;
     border-radius: 6px;
     background-color: var(--dark-gray);
     position: relative;
+}
+.dishes__list__item__img{
+    width: 100%;
+    height: auto;
 }
 .dishes__list__item__share-btn{
     position: absolute;
@@ -62,7 +66,7 @@
 }
 .dishes__list__item__text__buttons{
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 .dishes__list__item__text__buttons__order{

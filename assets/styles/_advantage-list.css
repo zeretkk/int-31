@@ -49,3 +49,11 @@
     color: #191919;
     opacity: 1;
 }
+@media screen and (max-width: 525px) {
+    .advantage-list{
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+}
