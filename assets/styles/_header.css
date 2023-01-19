@@ -3,6 +3,8 @@
     border-bottom: 1px solid #fff;
 }
 .header__wrapper{
+    max-width: 1110px;
+    margin: 0 auto;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
