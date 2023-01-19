@@ -10,14 +10,14 @@
     flex: 0 0 200px;
     text-align: center;
 }
-.contact-list__item__icon{
+.contact-list__icon{
     margin: 0 auto 13px auto;
 }
-.contact-list__item__description{
+.contact-list__description{
     opacity: .5;
     font-size: 14;
 }
-.contact-list_variant_footer{
+.footer > .contact-list{
     justify-content: space-evenly;
     padding: 32px 0;
     max-width: 1110px;
