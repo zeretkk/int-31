@@ -4,12 +4,18 @@
     justify-content: flex-start;
     align-items: center;
 }
+.rating:hover{
+    filter: brightness(2) sepia(1) hue-rotate(5deg) saturate(3);
+}
 .rating__star{
     display: inline-block;
     height: 25px;
     width: 25px;
     vertical-align: bottom;
     cursor: pointer;
+}
+.rating__star:hover, .rating__star_active{
+    filter: brightness(2) sepia(1) hue-rotate(5deg) saturate(5);
 }
 .rating__star_full{
     background: url("../images/ic_star.svg") center no-repeat;
