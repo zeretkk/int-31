@@ -15,33 +15,3 @@
     max-width: max(65%, 400px);
     margin: 0 auto 90px auto;
 }
-
-.slider{
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    gap: 34px;
-}
-.slider__content{
-    position: relative;
-    height: 270px;
-}
-.slider__item{
-    position: absolute;
-    width: 50%;
-    height: auto;
-    bottom: 50%;
-    top: 50%;
-    transform: translate(0, -50%);
-
-}
-.slider__item:nth-child(2n+1){
-    left: calc(0px - 1.5vw);
-    
-}
-.slider__item:nth-child(2n){
-    right: calc(0px - 1.5vw);
-}
-
-.slider__button{
-    margin: auto;
-}
