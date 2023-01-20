@@ -1,17 +1,24 @@
 function slide(side){
     const container = document.querySelector('.slider__content')
-    const pages  = container.children
-    const active  = document.querySelector('.slider__page:not(.slider__page_hidden)')
-    const activeIdx = Array.prototype.indexOf.call(pages, active)
-    if(side === 'left'){
-        active.classList.add('slider__page_hidden')
-        pages[activeIdx+1].classList.remove('slider__page_hidden')
-        container.append(pages[activeIdx-1])
+    let current = +container.dataset.current
+    if(side == 'right'){
+        if(current >= container.children.length - 2){
+            container.scrollLeft = 0
+            container.dataset.current = 0
+            return
+        }
+        container.scrollBy(container.children[0].offsetWidth+30, 0)
+        container.dataset.current = current+1
         return
     }
-    active.classList.add('slider__page_hidden')
-    pages[activeIdx-1].classList.remove('slider__page_hidden')
-    container.prepend(pages[pages.length-1]) 
+    if(current <= 0){
+        container.scrollLeft = container.scrollWidth
+        container.dataset.current = container.children.length -1
+        return
+    }
+    container.scrollBy(-container.children[0].offsetWidth-30, 0)
+    container.dataset.current = current - 1
+    return
 
 }
 
