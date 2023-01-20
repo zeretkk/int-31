@@ -18,7 +18,8 @@
 .slider__item{
     flex: 0 0 48%;
     width: 48%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     max-width: 370px;
     height: auto;
 }
