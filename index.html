@@ -235,6 +235,41 @@
                 </div>
             </div>
         </div>
+        <div class="calculator">
+            <h4 class="calculator__heading">
+                Calculate Your Calories
+                <div class="background-text">
+                    CALC
+                </div>
+            </h4>
+            <div class="calculator__input-wrapper">
+                <p class="calculator__input-heading">Your gender</p>
+                <div class="calculator__input-group">
+                    <button class="calculator__button calculator__button_active" data-gender="male">Male</button>
+                    <button class="calculator__button" data-gender="female">Female</button>
+                </div>
+            </div>
+            <div class="calculator__input-wrapper">
+                <p class="calculator__input-heading">Your constitution</p>
+                <div class="calculator__input-group">
+                    <input type="number" class="calculator__field" placeholder="height" name="height">
+                    <input type="number" class="calculator__field" placeholder="weight" name="weight">
+                    <input type="number" class="calculator__field" placeholder="age" name="age">
+                </div>
+
+            </div>
+            <div class="calculator__input-wrapper">
+                <p class="calculator__input-heading">Your activity</p>
+                <div class="calculator__input-group">
+                    <button class="calculator__button calculator__button_active" data-activity="weak">Weak activity</button>
+                    <button class="calculator__button" data-activity="low">Low activity</button>
+                    <button class="calculator__button" data-activity="medium">Medium activity</button>
+                    <button class="calculator__button" data-activity="high">High activity</button>
+                </div>
+                
+            </div>
+            <p class="calculator__summary">Daily calorie intake: <span>0</span>kcal</p>
+        </div>
     </main>
     
 
@@ -261,6 +296,8 @@
             <p class="footer__copy">&copy; Designed by Yellow Snow. All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="./assets/scripts/slider.js"></script>
+    <script src="./assets/scripts/slider.js" type="module"></script>
+    <script src="./assets/scripts/calculator.js" type="module"></script>
+    <script src="./assets/scripts/scripts.js" type="module"></script>
 </body>
 </html>
