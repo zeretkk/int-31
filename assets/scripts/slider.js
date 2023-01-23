@@ -1,15 +1,7 @@
-
-// зажатие скрола +
-// универсальность+
-// ретурны лишние+
-
-
-
-
 window.onload = function(){
     const initSlideHandler =()=>{
         let isSliding = false
-        function handle_slide(side){
+        function handleSlide(side){
             if(isSliding) return
             const container = document.querySelector('.slider__content')
             console.log()
@@ -38,11 +30,11 @@ window.onload = function(){
             }
             setTimeout(()=>isSliding=false, 500)
         }
-        return handle_slide
+        return handleSlide
     }
-    const handle_slide = initSlideHandler()
+    const handleSlide = initSlideHandler()
 
     document.querySelectorAll('.slider__button').forEach(e=>{
-        e.addEventListener('click', ()=>handle_slide(e.dataset.direction))
+        e.addEventListener('click', ()=>handleSlide(e.dataset.direction))
     })
 }
