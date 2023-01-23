@@ -11,14 +11,13 @@
     width: fit-content;
     flex-flow: row nowrap;
     overflow: hidden;
-    gap: 30px;
+    gap: 4%;
     scroll-behavior: smooth;
 
 }
 .slider__item{
     flex: 0 0 48%;
     width: 48%;
-    height: 100%;
     object-fit: cover;
     max-width: 370px;
     height: auto;
@@ -28,5 +27,12 @@
     height: auto;
     max-height: 99;
     margin: auto;
-    vertical-align: middle
+    vertical-align: middle;
+    transition: 0.5s;
+}
+.slider__button:last-child:hover{
+    transform: translateX(15%);
+}
+.slider__button:first-child:hover{
+    transform: translateX(-15%);
 }

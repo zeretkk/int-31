@@ -1,10 +1,10 @@
 window.onload = function(){
+
     const initSlideHandler =()=>{
-        let isSliding = false
-        function handleSlide(side){
-            if(isSliding) return
+        let lastCall = 0
+        return function handleSlide(side, e){
+            if(lastCall > 0 && e.timeStamp - lastCall < 500) return
             const container = document.querySelector('.slider__content')
-            console.log()
             let current = + container.dataset.current
             const displayed = Math.floor(container.offsetWidth/(container.children[0].offsetWidth))
             isSliding = true
@@ -15,7 +15,7 @@ window.onload = function(){
                         container.dataset.current = 0
                         break
                     }
-                    container.scrollBy(container.children[0].offsetWidth+30, 0)
+                    container.scrollBy(container.children[0].offsetWidth+container.offsetWidth/100*4, 0)
                     container.dataset.current = current+1
                     break
                 case 'left':
@@ -24,17 +24,18 @@ window.onload = function(){
                         container.dataset.current = container.children.length -1
                         break
                     }
-                    container.scrollBy(-container.children[0].offsetWidth-30, 0)
+                    container.scrollBy(-container.children[0].offsetWidth-container.offsetWidth/100*4, 0)
                     container.dataset.current = current - 1
                     break
             }
-            setTimeout(()=>isSliding=false, 500)
+            lastCall = e.timeStamp
         }
-        return handleSlide
     }
-    const handleSlide = initSlideHandler()
 
-    document.querySelectorAll('.slider__button').forEach(e=>{
-        e.addEventListener('click', ()=>handleSlide(e.dataset.direction))
+    const handleSlide = initSlideHandler()
+    const sliderButtons = document.querySelectorAll('.slider__button')
+    sliderButtons.forEach(element=>{
+        element.addEventListener('click', (event)=>handleSlide(element.dataset.direction, event))
     })
+
 }
