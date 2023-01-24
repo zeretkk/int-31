@@ -25,14 +25,11 @@
 .slider__button{
     width: 30%;
     height: auto;
-    max-height: 99;
     margin: auto;
     vertical-align: middle;
-    transition: 0.5s;
+    border-radius: 50%;
 }
-.slider__button:last-child:hover{
-    transform: translateX(15%);
+.slider__button:hover{
+    border: 2px solid var(--primary);
 }
-.slider__button:first-child:hover{
-    transform: translateX(-15%);
-}
+
