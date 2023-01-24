@@ -17,6 +17,11 @@ function calculateCalorie({weight, height, age, gender, activity}){
     return Math.ceil(calculateBmr({weight, height, age, gender}) * activities[activity])
 }
 function displayResult(ref){
+    if(!ref){
+        const counter = document.querySelector('.calculator__summary').children[0]
+        counter.innerHTML = '0'
+        return
+    }
     const counter = document.querySelector('.calculator__summary').children[0]
     counter.innerHTML = calculateCalorie(ref)
 }
@@ -27,7 +32,6 @@ export function updateMetrics(dataset){
         displayResult(metrics)
         return
     }
-    const counter = document.querySelector('.calculator__summary').children[0]
-    counter.innerHTML = '0'
+    displayResult()
 }
 
