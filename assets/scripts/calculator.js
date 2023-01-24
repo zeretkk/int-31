@@ -23,6 +23,11 @@ function displayResult(ref){
 
 export function updateMetrics(dataset){
     Object.assign(metrics, dataset)
-    if(Object.keys(metrics).length >= 5) displayResult(metrics)
+    if(Object.keys(metrics).length >= 5 && Object.keys(metrics).every(key=>!!metrics[key])){
+        displayResult(metrics)
+        return
+    }
+    const counter = document.querySelector('.calculator__summary').children[0]
+    counter.innerHTML = '0'
 }
 
