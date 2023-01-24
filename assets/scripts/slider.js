@@ -18,7 +18,7 @@ export const initSlideHandler =()=>{
             case 'left':
                 if(current <= 0){
                     container.scrollLeft = container.scrollWidth
-                    container.dataset.current = container.children.length -1
+                    container.dataset.current = container.children.length - displayed
                     break
                 }
                 container.scrollBy(-container.children[0].offsetWidth-container.offsetWidth/100*4, 0)
