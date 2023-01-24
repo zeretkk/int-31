@@ -4,29 +4,29 @@
     justify-content: flex-start;
     align-items: center;
 }
-.rating:hover{
-    filter: brightness(2) sepia(1) hue-rotate(5deg) saturate(3);
+.rating__stars-wrapper{
+    display: flex;
+    flex-flow: row-reverse nowrap;
 }
-.rating__star{
+.rating__star, .rating__star > *{
     display: inline-block;
     height: 25px;
     width: 25px;
     vertical-align: bottom;
     cursor: pointer;
 }
-.rating__star:hover, .rating__star_active{
-    filter: brightness(2) sepia(1) hue-rotate(5deg) saturate(5);
+
+.rating__star:hover rect, .rating__star:hover ~ .rating__star rect{
+    fill: #F9AD3D;
 }
-.rating__star_full{
-    background: url("../images/ic_star.svg") center no-repeat;
-}
-.rating__star_half{
-    background: url("../images/ic_star_half.svg") center no-repeat;
-}
-.rating__star_empty{
-    background: url("../images/ic_star_border.svg") center no-repeat;
+.rating__stars-wrapper[data-rating="1"] .rating__star:nth-child(n+5) rect,
+.rating__stars-wrapper[data-rating="2"] .rating__star:nth-child(n+4) rect,
+.rating__stars-wrapper[data-rating="3"] .rating__star:nth-child(n+3) rect,
+.rating__stars-wrapper[data-rating="4"] .rating__star:nth-child(n+2) rect,
+.rating__stars-wrapper[data-rating="5"] .rating__star:nth-child(n+1) rect{
+    fill:#F9AD3D;
 }
 .rating__count{
     margin-top: 5px;
-    margin-left: 15px;
+    margin-left: 5px;
 }
