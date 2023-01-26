@@ -68,7 +68,29 @@ window.onload = function(){
     
     function updateMetrics(dataset){
         Object.assign(metrics, dataset)
+        localStorage.setItem('metrics', JSON.stringify(metrics))
         displayResult(metrics)
+    }
+    
+    function aplyMetricString(metricsString){
+        const parsedMetrics = JSON.parse(metricsString)
+
+        const calcFields = document.querySelectorAll('.calculator__input')
+        calcFields.forEach(element=>{
+            element.value = parsedMetrics[element.name]
+        })
+
+        const calcBtns = document.querySelectorAll('.calculator__button')
+        calcBtns.forEach(element=>{
+            const btnType = Object.keys(element.dataset)[0]
+            if(element.dataset[btnType] === parsedMetrics[btnType]){
+                element.classList.add('calculator__button_active')
+                return
+            }
+            element.classList.remove('calculator__button_active')
+        })
+        
+        updateMetrics(parsedMetrics)
     }
     
     function handleCalcBtn(event){
@@ -95,4 +117,9 @@ window.onload = function(){
     calcFields.forEach(element=>{
         element.addEventListener('input', event=>handleCalcInput(event))
     })
+    
+    if(localStorage.getItem('metrics')){
+        aplyMetricString(localStorage.getItem('metrics'))
+    }
+
 }
