@@ -5,12 +5,6 @@
     margin-top: 164px;
     margin-bottom: 90px;
 }
-.about__heading{
-    margin-bottom: 60px;
-    position: relative;
-    z-index: 999;
-
-}
 .about__description{
     max-width: max(65%, 400px);
     margin: 0 auto 90px auto;

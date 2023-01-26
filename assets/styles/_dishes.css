@@ -1,24 +1,6 @@
 .dishes{
     margin-bottom: 120px;
 }
-.dishes__heading{
-    position: relative;
-    width: fit-content;
-    margin: 0 auto;
-    margin-bottom: 60px;
-}
-.dishes__heading::after{
-    display: block;
-    content: "";
-    width: 60px;
-    height: 2px;
-    background-color: var(--primary);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-}
 .dishes__list{
     display: flex;
     flex-flow: row wrap;
