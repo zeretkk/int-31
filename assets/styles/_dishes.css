@@ -5,7 +5,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    gap:15px;
+    gap:30px;
     align-items: center;
 }
 .dishes__item{
