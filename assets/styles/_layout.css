@@ -33,7 +33,6 @@
 }
 html{
     scroll-behavior: smooth;
-    width: 100vw;
 }
 body{
     background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
@@ -45,7 +44,6 @@ body{
     scroll-behavior: smooth;
     overflow-y: auto;
 }
-
 h1{
     font-size: 72px;
     font-weight: normal;

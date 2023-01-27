@@ -133,13 +133,13 @@ window.onload = function(){
 
     function handleOrder(){
         popup.classList.remove('popup_hidden')
-        body.style.overflowY = 'hidden'
+        body.style = `overflow: hidden; padding-right: ${window.innerWidth - body.offsetWidth}px`
         popup.scrollTo(0, 0)
     }
     
     function handlePopupHide(){
         popup.classList.add('popup_hidden')
-        body.style.overflowY = 'auto'
+        body.style = 'overflow: auto;'
     }
     
     function handleFromSubmit(event){
