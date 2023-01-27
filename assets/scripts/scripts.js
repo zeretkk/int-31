@@ -125,6 +125,7 @@ window.onload = function(){
 
     function handleOrder(){
         popup.classList.remove('popup_hidden')
+        popup.scrollTo(0, 0)
     }
     
     function handleFromSubmit(event){
