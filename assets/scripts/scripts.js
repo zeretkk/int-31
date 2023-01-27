@@ -122,4 +122,39 @@ window.onload = function(){
         aplyMetricString(localStorage.getItem('metrics'))
     }
 
+
+    function handleOrder(){
+        popup.classList.remove('popup_hidden')
+    }
+    
+    function handleFromSubmit(event){
+        event.preventDefault()
+        popup.classList.add('popup_hidden')
+    }
+    function handleCounter(event){
+        const counter = document.querySelector('.popup__counter')
+        switch(event.target.dataset.action){
+            case 'incr':
+                counter.textContent = +counter.textContent + 1
+                break
+            case 'decr':
+                if(+counter.textContent < 2) break
+                counter.textContent = +counter.textContent - 1
+                break
+        }
+    }
+
+    const popup = document.querySelector('.popup')
+    const orderBtns = document.querySelectorAll('.dishes__order')
+    const form = document.querySelector('.popup__form')
+    const formCounterBtn = document.querySelectorAll('.popup__button[data-action]')
+    
+    orderBtns.forEach(element=>{
+        element.addEventListener('click', ()=>handleOrder())
+    })
+
+    form.addEventListener('submit', event=>handleFromSubmit(event))
+    formCounterBtn.forEach(element=>{
+        element.addEventListener('click', (event)=>handleCounter(event))
+    })
 }

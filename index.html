@@ -490,26 +490,49 @@
             <p class="calculator__summary">Daily calorie intake: <span>0</span>kcal</p>
         </div>
     </main>
-    <div class="popup">
+    <div class="popup popup_hidden">
         <h4>Оформление заказа</h4>
-        <div class="popup__wrapper">
+        <form class="popup__form" action="">
             <div class="popup__group">
                 <select name="city" class="popup__select">
                     <option value="Moscow" selected>Moscow</option>
                     <option value="OneMoreCity">One more City</option>
                 </select>
-                <input type="text" name="street" class="popup__input"  name="street" placeholder="street">
+                <input type="text" name="street" class="popup__input"  name="street" placeholder="Street">
                 <div class="popup__inline">
                     <input type="text" class="popup__input" name="house" placeholder="house">
                     <input type="text" class="popup__input" name="apart" placeholder="apart">
                     <input type="text" class="popup__input" name="entrance" placeholder="entrance">
                     <input type="text" class="popup__input" name="floor" placeholder="floor">
                 </div>
+                <p class="popup__info">Read the <a href="#s" class="popup__link">terms of delivery</a></p>
             </div>
             <div class="popup__group">
                 <p class="popup__label">Bonuses</p>
+                <p>You have 300 bonuses</p>
+                <input type="text" class="popup__input" name="bonus" placeholder="Apply bonuses">
+                <p class="popup__info">Read the <a href="#s" class="popup__link">terms of the bonus program</a></p>
             </div>
-        </div>
+            <div class="popup__group">
+                <p class="popup__label">Promo code</p>
+                <div class="popup__inline">
+                    <input class="popup__input" name="promo" placeholder="Code">
+                    <button type="button" class="popup__button">Check</button>
+                </div>
+            </div>
+            <div class="popup__group">
+                <p class="popup__label">Details</p>
+                <input type="text" class="popup__input" name="name" placeholder="Your name">
+                <textarea name="comments" placeholder="Comments" class="popup__input"></textarea>
+                <p class="popup__text">Number of units</p>
+                <div class="popup__inline popup__inline__start">
+                    <button class="popup__button" type="button" data-action="decr">-</button>
+                    <p class="popup__counter">1</p>
+                    <button class="popup__button" type="button" data-action="incr">+</button>
+                </div>
+                <button class="popup__button" type="submit">Submit order</button>
+            </div>
+        </form>
         
     </div>
     
