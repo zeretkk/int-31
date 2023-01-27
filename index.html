@@ -495,7 +495,7 @@
             <h4>Checkout</h4>
             <button class="popup__close">X</button>
         </div>
-        <form class="popup__form" action="">
+        <form class="popup__form" action="" novalidate>
             <div class="popup__group">
                 <select name="city" class="popup__select">
                     <option value="Moscow" selected>Moscow</option>
@@ -528,9 +528,9 @@
                 <input type="text" class="popup__input" name="name" placeholder="Your name" required>
                 <textarea name="comments" placeholder="Comments" class="popup__input"></textarea>
                 <p class="popup__text">Number of units</p>
-                <div class="popup__inline">
+                <div class="popup__counter">
                     <button class="popup__button" type="button" data-action="decr">-</button>
-                    <p class="popup__counter">1</p>
+                    <p class="popup__number">1</p>
                     <button class="popup__button" type="button" data-action="incr">+</button>
                 </div>
                 <button class="popup__button" type="submit">Submit order</button>

@@ -129,20 +129,38 @@ window.onload = function(){
     const formCounterBtn = popup.querySelectorAll('.popup__button[data-action]')
     const counter = popup.querySelector('.popup__counter')
     const closeBtn = popup.querySelector('.popup__close')
+    const body = document.querySelector('body')
 
     function handleOrder(){
         popup.classList.remove('popup_hidden')
+        body.style.overflowY = 'hidden'
         popup.scrollTo(0, 0)
     }
     
     function handlePopupHide(){
         popup.classList.add('popup_hidden')
+        body.style.overflowY = 'auto'
     }
     
     function handleFromSubmit(event){
         event.preventDefault()
-        handlePopupHide()
+        let isValid = true
+        const fields = popup.querySelectorAll('.popup__input')
+        fields.forEach(field=>{
+            if(field.checkValidity()){
+                field.classList.remove('popup__input_invalid')
+                return
+            }
+            isValid = false
+            field.classList.add('popup__input_invalid')
+        })
+        if(isValid){
+            handlePopupHide()
+            return
+        }
+        popup.scrollTo(0, 0)
     }
+
     function handleCounter(event){
         switch(event.target.dataset.action){
             case 'incr':
