@@ -17,24 +17,28 @@
 .popup_hidden{
     opacity: 0;
     pointer-events: none;
+    top: -100vh;
 }
 .popup__label{
     font-size: 1.3em;
     margin-bottom: 1em;
 }
+.popup__input:invalid{
+    border-color: #ff5555;
+}
 .popup__input, .popup__select{
     width: var(--width);
     display: block;
-    height: 40px;
+    height: 45px;
     background-color: var(--dark-gray);
     border: 2px solid #303030;
-    line-height: 42px;
-    padding: .1em .5rem;
+    padding: 0 1.5em;
     border-radius: 30px;
     margin-bottom: 1em;
     color: #fff;
 }
 textarea.popup__input{
+    padding: .5em 1.5em;
     min-height: 10em;
     resize: none;
 }

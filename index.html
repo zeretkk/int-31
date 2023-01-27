@@ -498,19 +498,19 @@
                     <option value="Moscow" selected>Moscow</option>
                     <option value="OneMoreCity">One more City</option>
                 </select>
-                <input type="text" name="street" class="popup__input"  name="street" placeholder="Street">
+                <input type="text" name="street" class="popup__input"  name="street" placeholder="Street" required>
                 <div class="popup__inline">
-                    <input type="text" class="popup__input" name="house" placeholder="house">
-                    <input type="text" class="popup__input" name="apart" placeholder="apart">
-                    <input type="text" class="popup__input" name="entrance" placeholder="entrance">
-                    <input type="text" class="popup__input" name="floor" placeholder="floor">
+                    <input type="number" class="popup__input" name="house" placeholder="house" required>
+                    <input type="number" class="popup__input" name="apart" placeholder="apart" required>
+                    <input type="number" class="popup__input" name="entrance" placeholder="entrance" required>
+                    <input type="number" class="popup__input" name="floor" placeholder="floor" required>
                 </div>
                 <p class="popup__info">Read the <a href="#s" class="popup__link">terms of delivery</a></p>
             </div>
             <div class="popup__group">
                 <p class="popup__label">Bonuses</p>
                 <p>You have 300 bonuses</p>
-                <input type="text" class="popup__input" name="bonus" placeholder="Apply bonuses">
+                <input type="text" class="popup__input" name="bonus" placeholder="Apply bonuses" type="number">
                 <p class="popup__info">Read the <a href="#s" class="popup__link">terms of the bonus program</a></p>
             </div>
             <div class="popup__group">
@@ -522,10 +522,10 @@
             </div>
             <div class="popup__group">
                 <p class="popup__label">Details</p>
-                <input type="text" class="popup__input" name="name" placeholder="Your name">
+                <input type="text" class="popup__input" name="name" placeholder="Your name" required>
                 <textarea name="comments" placeholder="Comments" class="popup__input"></textarea>
                 <p class="popup__text">Number of units</p>
-                <div class="popup__inline popup__inline__start">
+                <div class="popup__inline">
                     <button class="popup__button" type="button" data-action="decr">-</button>
                     <p class="popup__counter">1</p>
                     <button class="popup__button" type="button" data-action="incr">+</button>

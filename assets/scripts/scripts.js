@@ -110,18 +110,24 @@ window.onload = function(){
 
     const calcBtns = document.querySelectorAll('.calculator__button')
     calcBtns.forEach(element=>{
-        element.addEventListener('click', (event)=>handleCalcBtn(event))
+        element.addEventListener('click', handleCalcBtn)
     })
     
     const calcFields = document.querySelectorAll('.calculator__input')
     calcFields.forEach(element=>{
-        element.addEventListener('input', event=>handleCalcInput(event))
+        element.addEventListener('input', handleCalcInput)
     })
     
     if(localStorage.getItem('metrics')){
         aplyMetricString(localStorage.getItem('metrics'))
     }
 
+
+    const orderBtns = document.querySelectorAll('.dishes__order')
+    const popup = document.querySelector('.popup')
+    const form = popup.querySelector('.popup__form')
+    const formCounterBtn = popup.querySelectorAll('.popup__button[data-action]')
+    const counter = popup.querySelector('.popup__counter')
 
     function handleOrder(){
         popup.classList.remove('popup_hidden')
@@ -130,10 +136,9 @@ window.onload = function(){
     
     function handleFromSubmit(event){
         event.preventDefault()
-        popup.classList.add('popup_hidden')
+        console.log(event.target.formData)
     }
     function handleCounter(event){
-        const counter = document.querySelector('.popup__counter')
         switch(event.target.dataset.action){
             case 'incr':
                 counter.textContent = +counter.textContent + 1
@@ -145,17 +150,12 @@ window.onload = function(){
         }
     }
 
-    const popup = document.querySelector('.popup')
-    const orderBtns = document.querySelectorAll('.dishes__order')
-    const form = document.querySelector('.popup__form')
-    const formCounterBtn = document.querySelectorAll('.popup__button[data-action]')
-    
     orderBtns.forEach(element=>{
-        element.addEventListener('click', ()=>handleOrder())
+        element.addEventListener('click', handleOrder)
     })
 
-    form.addEventListener('submit', event=>handleFromSubmit(event))
+    form.addEventListener('submit', handleFromSubmit)
     formCounterBtn.forEach(element=>{
-        element.addEventListener('click', (event)=>handleCounter(event))
+        element.addEventListener('click', handleCounter)
     })
 }
