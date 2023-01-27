@@ -2,13 +2,12 @@
     --width:max(50%, 330px);
     position: fixed;
     background-color: var(--dark-gray);
-    transform: translate(0, -50%);
-    top: 50%;
+    top: 0;
     right: 0;
     left: 0;
     margin: 0 auto;
-    max-width: 1110px;
-    max-height: 600px;
+    width: 100vw;
+    height: 100vh;
     overflow-y: auto;
     z-index: 999;
     padding: 1em;
@@ -18,6 +17,19 @@
     opacity: 0;
     pointer-events: none;
     top: -100vh;
+}
+.popup__header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.popup__close{
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
 }
 .popup__label{
     font-size: 1.3em;
@@ -79,6 +91,7 @@ textarea.popup__input{
     color: #000;
     border-radius: 30px;
     height:40px;
+    cursor: pointer;
 }
 .popup__button:hover{
     background-color: var(--dark-gray);

@@ -128,15 +128,20 @@ window.onload = function(){
     const form = popup.querySelector('.popup__form')
     const formCounterBtn = popup.querySelectorAll('.popup__button[data-action]')
     const counter = popup.querySelector('.popup__counter')
+    const closeBtn = popup.querySelector('.popup__close')
 
     function handleOrder(){
         popup.classList.remove('popup_hidden')
         popup.scrollTo(0, 0)
     }
     
+    function handlePopupHide(){
+        popup.classList.add('popup_hidden')
+    }
+    
     function handleFromSubmit(event){
         event.preventDefault()
-        console.log(event.target.formData)
+        handlePopupHide()
     }
     function handleCounter(event){
         switch(event.target.dataset.action){
@@ -158,4 +163,5 @@ window.onload = function(){
     formCounterBtn.forEach(element=>{
         element.addEventListener('click', handleCounter)
     })
+    closeBtn.addEventListener('click', handlePopupHide)
 }
