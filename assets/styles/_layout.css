@@ -33,8 +33,7 @@
 }
 html{
     scroll-behavior: smooth;
-    scrollbar-gutter: stable;
-
+    width: 100vw;
 }
 body{
     background: var(--black) url("../images/placeholder.png") no-repeat scroll top right;
@@ -44,7 +43,7 @@ body{
     font-weight: normal;
     font-size: 16px;
     scroll-behavior: smooth;
-    scrollbar-gutter: stable;
+    overflow-y: auto;
 }
 
 h1{
