@@ -25,6 +25,14 @@
     cursor: pointer;
     
 }
+.dishes__price{
+    position: absolute;
+    background: var(--primary);
+    left: 0;
+    top: 0;
+    padding: .2em 1em;
+    border-radius: 6px 0 0 0;
+}
 .dishes__text{
     padding: 30px;
 }
@@ -62,6 +70,7 @@
     line-height: 40px;
     padding: 0 32px;
     text-align: center;
+    cursor: pointer;
 }
 .dishes__order:hover{
     background-color: var(--primary);

@@ -122,14 +122,22 @@ window.onload = function(){
         aplyMetricString(localStorage.getItem('metrics'))
     }
 
-
-    const orderBtns = document.querySelectorAll('.dishes__order')
-    const popup = document.querySelector('.popup')
+    const body = document.querySelector('body')
+    const dishes = body.querySelectorAll('.dishes__item')
+    const popup = body.querySelector('.popup')
     const form = popup.querySelector('.popup__form')
     const formCounterBtn = popup.querySelectorAll('.popup__button[data-action]')
-    const counter = popup.querySelector('.popup__counter')
+    const counter = popup.querySelector('.popup__number')
     const closeBtn = popup.querySelector('.popup__close')
-    const body = document.querySelector('body')
+
+    const cartContainer = body.querySelector('.cart')
+    const cartList = cartContainer.querySelector('.cart__list')
+    const cartPlaceholder = cartContainer.querySelector('.cart__placeholder')
+    const cartClose = cartContainer.querySelector('.cart__close')
+    const cartOrderBtn = cartContainer.querySelector('.cart__order')
+    const cartCleanBtn = cartContainer.querySelector('.cart__clean')
+
+    const cartOpen = body.querySelector('.floating-btn')
 
     function handleOrder(){
         popup.classList.remove('popup_hidden')
@@ -172,9 +180,110 @@ window.onload = function(){
                 break
         }
     }
+    
+    function addCartItem(event){
+        let cart = JSON.parse(localStorage.getItem('cart')) || []
+        if(!event.target.classList.contains('dishes__order') || cart.some(item=>item.id === this.dataset.dishid)) return
+        const title = this.querySelector('.dishes__title').textContent
+        const price = +this.querySelector('.dishes__price').textContent.slice(0, -1)
+        const img = this.querySelector('.dishes__img').src
+        cart = [...cart, {title, price, img, count: 1, id: this.dataset.dishid}]
+        localStorage.setItem('cart', JSON.stringify(cart))
+        updateCart()   
+    }
 
-    orderBtns.forEach(element=>{
-        element.addEventListener('click', handleOrder)
+    function handleCartCountUpdate(event, counter){
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        switch(event.target.dataset.counter){
+            case 'incr':
+                counter.textContent = +counter.textContent + 1
+                break
+            case 'decr':
+                if(+counter.textContent < 2){
+                    cart = cart.filter(item=>item.id !== event.target.parentElement.dataset.dishid)
+                    localStorage.setItem('cart', JSON.stringify(cart))
+                    updateCart()
+                    return
+                }
+                counter.textContent = +counter.textContent - 1
+                break
+        }
+        console.log(event.target.parentElement.dataset.dishid)
+        cart = cart.map(item=>{
+            if(item.id === event.target.parentElement.dataset.dishid){
+                item.count = +counter.textContent
+            }
+            return item
+        })
+        localStorage.setItem('cart', JSON.stringify(cart))
+        updateCart()
+    }
+
+    function renderCartItem(item){
+        const dish = document.createElement('div')
+        dish.classList.add('cart__item')
+        dish.innerHTML = `
+            <div class="cart__item-wrapper">
+                <div class="cart__image">
+                    <img src="${item.img}" alt="${item.title}" class="cart__img">
+                </div>
+                <div class="cart__label">${item.title}</div>
+                <div class="cart__price">${item.price} <sup>&euro;</sup></div>  
+            </div>
+            <div class="cart__counter" data-dishid="${item.id}">
+                <button class="cart__button" data-counter="incr">+</button>
+                <p class="cart__number">${item.count}</p>
+                <button class="cart__button" data-counter="decr">-</button>
+            </div>
+            `
+        const cartBtns = dish.querySelectorAll('.cart__button')
+        const cartCounter = dish.querySelector('.cart__number')
+        cartBtns.forEach(element=>{
+            element.addEventListener('click', event=>handleCartCountUpdate(event, cartCounter))
+        })
+        cartList.append(dish)
+    }
+
+    function updateCart(){
+        let cart = JSON.parse(localStorage.getItem('cart')) || []
+        const total = cartContainer.querySelector('.cart__total-number')
+        if(cart.length > 0){
+            cartPlaceholder.classList.add('cart__placeholder_hidden')
+            cartList.classList.remove('cart__list_empty')
+            cartList.innerHTML = ''
+            let sum = 0
+            cart.forEach(item=>{
+                sum += item.count * item.price
+                renderCartItem(item)
+            })
+            total.textContent = sum
+            return
+        }
+        total.textContent = 0
+        cartPlaceholder.classList.remove('cart__placeholder_hidden')
+        cartList.classList.add('cart__list_empty')    
+    }
+    function cleanCart(){
+        localStorage.removeItem('cart')
+        updateCart()
+    }
+
+    function handleCart(){
+        if(cartContainer.classList.contains('cart_hidden')){
+            cartContainer.classList.remove('cart_hidden')
+            cartOpen.classList.add('floating-btn_hidden')
+            return
+        }
+        cartContainer.classList.add('cart_hidden')
+        cartOpen.classList.remove('floating-btn_hidden')
+    }
+
+    if(localStorage.getItem('cart')){
+        updateCart()
+    }
+
+    dishes.forEach(element=>{
+        element.addEventListener('click', addCartItem)
     })
 
     form.addEventListener('submit', handleFromSubmit)
@@ -182,4 +291,11 @@ window.onload = function(){
         element.addEventListener('click', handleCounter)
     })
     closeBtn.addEventListener('click', handlePopupHide)
+    cartClose.addEventListener('click', handleCart)
+    cartOpen.addEventListener('click', handleCart)
+    cartOrderBtn.addEventListener('click', ()=>{
+        handleCart()
+        handleOrder()
+    })
+    cartCleanBtn.addEventListener('click', cleanCart)
 }

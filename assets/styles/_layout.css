@@ -29,7 +29,8 @@
     --primary:#34C759;
     --black:#1A1A1A;
     --dark-gray:#252525;
-    --light-gray:#737373
+    --light-gray:#737373;
+    --red: #ff5555;
 }
 html{
     scroll-behavior: smooth;
@@ -108,6 +109,17 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.floating-btn{
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    transition: .5s;
+    border-radius: 50%;
+    z-index: 997;
+}
+.floating-btn_hidden{
+    right: -150vw;
 }
 
 input[type=number] {

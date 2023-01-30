@@ -1,0 +1,135 @@
+.cart{
+    position: fixed;
+    right: 0;
+    top:0;
+    height: 100vh;
+    width: 350px;
+    background-color: var(--dark-gray);
+    border-left: 2px solid var(--light-gray);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 1em;
+    transition: .5s;
+    z-index: 999;
+}
+.cart_hidden{
+    opacity: 0;
+    right: -150vw;
+    
+}
+.cart__header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+.cart__close{
+    height: 2em;
+    width: 2em;
+    font-size: 2em;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.cart__close:hover{
+    color: var(--red);
+}
+.cart__list{
+    max-height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    height: 100%;
+    gap: .5em;
+}
+.cart__list.cart__list_empty{
+    justify-content: center;
+    align-items: center;
+
+}
+.cart__placeholder{
+    display: block;
+}
+.cart__placeholder_hidden{
+    display: none;
+}
+.cart__list_empty{
+    display: none;
+}
+.cart__icon{
+    width: fit-content;
+    margin: 0 auto;
+}
+.cart__text{
+    font-size: 1.2em;
+    text-align: center;
+}
+.cart__info{
+    text-align: center;
+    color: rgba(255,255,255, 0.5);
+}
+.cart__order{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    background: var(--primary);
+    padding: 1em;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: .5em;
+}
+.cart__clean{
+    text-align: center;
+    color: rgba(255,255,255, 0.5);
+    cursor: pointer;
+}
+.cart__item-wrapper{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+.cart__item-wrapper>div{
+    flex: 1 1 30%;
+}
+.cart__image{
+    flex: 0 1 30%;
+}
+.cart__image>img{
+    width: 100%;
+    height: auto;
+}
+.cart__price{
+    text-align: end;
+}
+.cart__counter{
+    margin-top: 1em;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: .5em;
+    align-items: center;
+}
+.cart__button{
+    min-width: 2em;
+    background: var(--primary);
+    border: 2px solid var(--primary);
+    color: #303030;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.cart__button:hover{
+    background-color: var(--dark-gray);
+    border: 2px solid #303030;
+    color: #fff;
+}
+@media screen and (max-width: 800px) {
+    .cart{
+        width: 100vw;
+    }
+}

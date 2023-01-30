@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 .popup__close:hover{
-    color: #ff5555;
+    color: var(--red);
 }
 .popup__label{
     font-size: 1.3em;
@@ -74,7 +74,7 @@ textarea.popup__input{
 
 }
 .popup__input_invalid{
-    border-color: #ff5555;
+    border-color: var(--red);
 }
 .popup__group{
     background-color: rgb(31, 31, 31);
