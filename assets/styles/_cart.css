@@ -75,6 +75,8 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     background: var(--primary);
+    border: 2px solid var(--primary);
+
     padding: 1em;
     border-radius: 30px;
     font-size: 1.1em;
@@ -123,7 +125,7 @@
     border-radius: 30px;
     cursor: pointer;
 }
-.cart__button:hover{
+.cart__button:hover, .cart__order:hover{
     background-color: var(--dark-gray);
     border: 2px solid #303030;
     color: #fff;
