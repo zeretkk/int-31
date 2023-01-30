@@ -183,7 +183,19 @@ window.onload = function(){
     
     function addCartItem(event){
         let cart = JSON.parse(localStorage.getItem('cart')) || []
-        if(!event.target.classList.contains('dishes__order') || cart.some(item=>item.id === this.dataset.dishid)) return
+        if(cartContainer.classList.contains('cart_hidden')) handleCart()
+        if(!event.target.classList.contains('dishes__order')) return
+        if(cart.some(item=>item.id === this.dataset.dishid)){
+            cart = cart.map(item=>{
+                if(item.id === this.dataset.dishid){
+                    item.count = item.count + 1
+                }
+                return item
+            })
+            localStorage.setItem('cart', JSON.stringify(cart))
+            updateCart()
+            return
+        }
         const title = this.querySelector('.dishes__title').textContent
         const price = +this.querySelector('.dishes__price').textContent.slice(0, -1)
         const img = this.querySelector('.dishes__img').src
@@ -208,7 +220,6 @@ window.onload = function(){
                 counter.textContent = +counter.textContent - 1
                 break
         }
-        console.log(event.target.parentElement.dataset.dishid)
         cart = cart.map(item=>{
             if(item.id === event.target.parentElement.dataset.dishid){
                 item.count = +counter.textContent
@@ -228,7 +239,7 @@ window.onload = function(){
                     <img src="${item.img}" alt="${item.title}" class="cart__img">
                 </div>
                 <div class="cart__label">${item.title}</div>
-                <div class="cart__price">${item.price} <sup>&euro;</sup></div>  
+                <div class="cart__price">${item.price * item.count} <sup>&euro;</sup></div>  
             </div>
             <div class="cart__counter" data-dishid="${item.id}">
                 <button class="cart__button" data-counter="incr">+</button>
@@ -247,6 +258,7 @@ window.onload = function(){
     function updateCart(){
         let cart = JSON.parse(localStorage.getItem('cart')) || []
         const total = cartContainer.querySelector('.cart__total-number')
+        const floatingCounter = cartOpen.querySelector('.floating-btn__count')
         if(cart.length > 0){
             cartPlaceholder.classList.add('cart__placeholder_hidden')
             cartList.classList.remove('cart__list_empty')
@@ -257,11 +269,14 @@ window.onload = function(){
                 renderCartItem(item)
             })
             total.textContent = sum
+            floatingCounter.textContent = cart.length
+
             return
         }
         total.textContent = 0
         cartPlaceholder.classList.remove('cart__placeholder_hidden')
-        cartList.classList.add('cart__list_empty')    
+        cartList.classList.add('cart__list_empty')
+        floatingCounter.textContent = 0
     }
     function cleanCart(){
         localStorage.removeItem('cart')

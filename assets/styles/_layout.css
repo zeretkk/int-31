@@ -118,6 +118,15 @@ input::-webkit-inner-spin-button {
     border-radius: 50%;
     z-index: 997;
 }
+.floating-btn__count{
+    background: #34C759;
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 1;
+    border-radius: 50%;
+    padding: .2em;
+}
 .floating-btn_hidden{
     right: -150vw;
 }
