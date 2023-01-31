@@ -118,26 +118,25 @@ window.onload = function(){
         element.addEventListener('input', handleCalcInput)
     })
     
-    if(localStorage.getItem('metrics')){
-        aplyMetricString(localStorage.getItem('metrics'))
-    }
+   
 
     const body = document.querySelector('body')
-    const dishes = body.querySelectorAll('.dishes__item')
-    const popup = body.querySelector('.popup')
+    const dishes = document.querySelectorAll('.dishes__item')
+    const popup = document.querySelector('.popup')
     const form = popup.querySelector('.popup__form')
     const formCounterBtn = popup.querySelectorAll('.popup__button[data-action]')
     const counter = popup.querySelector('.popup__number')
     const closeBtn = popup.querySelector('.popup__close')
+    const fields = popup.querySelectorAll('.popup__input')
 
-    const cartContainer = body.querySelector('.cart')
+    const cartContainer = document.querySelector('.cart')
     const cartList = cartContainer.querySelector('.cart__list')
     const cartPlaceholder = cartContainer.querySelector('.cart__placeholder')
     const cartClose = cartContainer.querySelector('.cart__close')
     const cartOrderBtn = cartContainer.querySelector('.cart__order')
     const cartCleanBtn = cartContainer.querySelector('.cart__clean')
 
-    const cartOpen = body.querySelector('.floating-btn')
+    const cartOpen = document.querySelector('.floating-btn')
 
     function handleOrder(){
         popup.classList.remove('popup_hidden')
@@ -150,10 +149,9 @@ window.onload = function(){
         body.style = 'overflow: auto;'
     }
     
-    function handleFromSubmit(event){
+    function handleFormSubmit(event){
         event.preventDefault()
         let isValid = true
-        const fields = popup.querySelectorAll('.popup__input')
         fields.forEach(field=>{
             if(field.checkValidity()){
                 field.classList.remove('popup__input_invalid')
@@ -182,9 +180,9 @@ window.onload = function(){
     }
     
     function addCartItem(event){
-        let cart = JSON.parse(localStorage.getItem('cart')) || []
-        if(cartContainer.classList.contains('cart_hidden')) handleCart()
         if(!event.target.classList.contains('dishes__order')) return
+        if(cartContainer.classList.contains('cart_hidden')) handleCart()
+        let cart = JSON.parse(localStorage.getItem('cart')) || []
         if(cart.some(item=>item.id === this.dataset.dishid)){
             cart = cart.map(item=>{
                 if(item.id === this.dataset.dishid){
@@ -214,8 +212,7 @@ window.onload = function(){
                 if(+counter.textContent < 2){
                     cart = cart.filter(item=>item.id !== event.target.parentElement.dataset.dishid)
                     localStorage.setItem('cart', JSON.stringify(cart))
-                    updateCart()
-                    return
+                    break
                 }
                 counter.textContent = +counter.textContent - 1
                 break
@@ -239,7 +236,7 @@ window.onload = function(){
                     <img src="${item.img}" alt="${item.title}" class="cart__img">
                 </div>
                 <div class="cart__label">${item.title}</div>
-                <div class="cart__price">${item.price * item.count} <sup>&euro;</sup></div>  
+                <div class="cart__price">${item.price * item.count}<sup>&euro;</sup></div>  
             </div>
             <div class="cart__counter" data-dishid="${item.id}">
                 <button class="cart__button" data-counter="incr">+</button>
@@ -270,7 +267,6 @@ window.onload = function(){
             })
             total.textContent = sum
             floatingCounter.textContent = cart.length
-
             return
         }
         total.textContent = 0
@@ -284,24 +280,26 @@ window.onload = function(){
     }
 
     function handleCart(){
-        if(cartContainer.classList.contains('cart_hidden')){
-            cartContainer.classList.remove('cart_hidden')
-            cartOpen.classList.add('floating-btn_hidden')
-            return
-        }
-        cartContainer.classList.add('cart_hidden')
-        cartOpen.classList.remove('floating-btn_hidden')
+        cartContainer.classList.toggle("cart_hidden");
+        cartOpen.classList.toggle("floating-btn_hidden");
     }
 
-    if(localStorage.getItem('cart')){
-        updateCart()
+    for(let key in localStorage){
+        switch(key){
+            case 'metrics':
+                aplyMetricString(localStorage.getItem(key))
+                break
+            case 'cart':
+                updateCart()
+                break
+        }
     }
 
     dishes.forEach(element=>{
         element.addEventListener('click', addCartItem)
     })
 
-    form.addEventListener('submit', handleFromSubmit)
+    form.addEventListener('submit', handleFormSubmit)
     formCounterBtn.forEach(element=>{
         element.addEventListener('click', handleCounter)
     })
