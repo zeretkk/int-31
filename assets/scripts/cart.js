@@ -158,15 +158,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         cartOpen.classList.toggle("floating-btn_hidden");
     }
 
-    for(let key in localStorage){
-        switch(key){
-            case 'metrics':
-                aplyMetricString(localStorage.getItem(key))
-                break
-            case 'cart':
-                updateCart()
-                break
-        }
+    if(localStorage.getItem('cart')){
+        updateCart()
     }
     
     const observer = new MutationObserver((list, observer)=>{

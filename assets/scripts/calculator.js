@@ -80,4 +80,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     calcFields.forEach(element=>{
         element.addEventListener('input', handleCalcInput)
     })
+    if(localStorage.getItem('metrics')){
+        aplyMetricString(localStorage.getItem('metrics'))
+
+    }
 })
