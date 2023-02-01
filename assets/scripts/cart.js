@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     const body = document.querySelector('body')
-    const dishes = document.querySelectorAll('.dishes__item')
+    const dishesList = document.querySelector('.dishes__list')
     const popup = document.querySelector('.popup')
     const form = popup.querySelector('.popup__form')
     const formCounterBtn = popup.querySelectorAll('.popup__button[data-action]')
@@ -168,10 +168,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 break
         }
     }
-
-    dishes.forEach(element=>{
-        element.addEventListener('click', addCartItem)
+    
+    const observer = new MutationObserver((list, observer)=>{
+        list.forEach(({addedNodes})=>{
+            addedNodes[0]?.addEventListener('click', addCartItem)
+        })
     })
+    observer.observe(dishesList, {childList:true})
 
     form.addEventListener('submit', handleFormSubmit)
     formCounterBtn.forEach(element=>{

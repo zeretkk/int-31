@@ -14,10 +14,15 @@
     background-color: var(--dark-gray);
     position: relative;
 }
+div.dishes__img{
+    width: 100%;
+    height: 270px;
+}
 .dishes__img{
     width: 100%;
     height: auto;
 }
+
 .dishes__share-btn{
     position: absolute;
     top: 24px;

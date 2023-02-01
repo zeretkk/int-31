@@ -1,0 +1,63 @@
+[
+    {
+        "id":1,
+        "title":"Featured Meal",
+        "served":"Served with french fries + drink",
+        "choice":"Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, Add Tender crisp patty and more...",
+        "rating": 2,
+        "price": 200,
+        "ratingCount":12,
+        "img": "./assets/images/dishes1.png"
+    },
+    {
+        "id":2,
+        "title":"Featured Meal",
+        "served":"Served with french fries + drink",
+        "choice":"Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, Add Tender crisp patty and more...",
+        "rating": 3.5,
+        "price": 250,
+        "ratingCount":12,
+        "img": "./assets/images/dishes2.png"
+    },
+    {
+        "id":3,
+        "title":"Featured Meal",
+        "served":"Served with french fries + drink",
+        "choice":"Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, Add Tender crisp patty and more...",
+        "rating": 4,
+        "price": 300,
+        "ratingCount":12,
+        "img": "./assets/images/dishes3.png"
+    },
+    {
+        "id":4,
+        "title":"Featured Meal",
+        "served":"Served with french fries + drink",
+        "choice":"Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, Add Tender crisp patty and more...",
+        "rating": 5,
+        "price": 350,
+        "ratingCount":12,
+        "img": "./assets/images/dishes4.png"
+
+    },
+    {
+        "id":5,
+        "title":"Featured Meal",
+        "served":"Served with french fries + drink",
+        "choice":"Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, Add Tender crisp patty and more...",
+        "rating": 1,
+        "price": 400,
+        "ratingCount":12,
+        "img": "./assets/images/dishes5.png"
+    },
+    {
+        "id":6,
+        "title":"Featured Meal",
+        "served":"Served with french fries + drink",
+        "choice":"Choice of: Coke, Fanta, Sprite, Upgrade to large fries, Add whopper patty, Add Tender crisp patty and more...",
+        "rating": 1,
+        "price": 450,
+        "ratingCount":12,
+        "img": "./assets/images/dishes6.png"
+    }
+]
