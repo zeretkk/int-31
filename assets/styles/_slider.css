@@ -5,6 +5,7 @@
 }
 .slider__wrapper{
     width: 100%;
+    margin: 0 auto;
 }
 .slider__content{
     display: flex;
@@ -23,7 +24,7 @@
     height: auto;
 }
 .slider__button{
-    width: 30%;
+    width: 64px;
     height: auto;
     margin: auto;
     vertical-align: middle;
@@ -32,4 +33,12 @@
 .slider__button:hover{
     border: 2px solid var(--primary);
 }
-
+@media screen and (max-width:600px) {
+    .slider__item{
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    .slider__wrapper{
+        width: 300px;
+    }
+}
