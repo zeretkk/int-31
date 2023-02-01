@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     function renderDish(item){
         const rating =(num)=>{
             const rounded = Math.round(num)
-            console.log(num, rounded)
             const fullStars =`
             <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg rating__star">
                 <mask id="mask0_4_207" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="19">
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     <rect x="-3" y="-3" width="26" height="26" fill="#4D4D4D"/>
                 </g>
             </svg>
-            `.repeat(Math.floor(num)) // 3.5
+            `.repeat(Math.floor(num))
             const half = rounded>num
             ?`
             <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg rating__star">
@@ -83,8 +82,3 @@ document.addEventListener('DOMContentLoaded',()=>{
         })
     
 })
-/* 
-Кастомный скролл
-JSON FETCH - Карточки, заглушки.
-Разделить файлы +
-*/
