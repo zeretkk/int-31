@@ -209,20 +209,15 @@ window.onload = function(){
                 counter.textContent = +counter.textContent + 1
                 break
             case 'decr':
-                if(+counter.textContent < 2){
-                    cart = cart.filter(item=>item.id !== event.target.parentElement.dataset.dishid)
-                    localStorage.setItem('cart', JSON.stringify(cart))
-                    break
-                }
                 counter.textContent = +counter.textContent - 1
                 break
         }
-        cart = cart.map(item=>{
+        cart = cart.reduce((arr,item)=>{
             if(item.id === event.target.parentElement.dataset.dishid){
                 item.count = +counter.textContent
             }
-            return item
-        })
+            return item.count>=1?[...arr, item]:arr
+        }, [])
         localStorage.setItem('cart', JSON.stringify(cart))
         updateCart()
     }
